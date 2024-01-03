@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #logo {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 400px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #333;
+                color: #fff;
+            }
+
+            form {
+                background-color: #555;
+                color: #fff;
+            }
+
+            input,
+            button {
+                background-color: #666;
+                color: #fff;
+            }
+        }
+    </style>
+    <title>Zlab's Weather App From</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon"
+    href="{% static 'media/favicon-light.png' %}">
+</head>
+<body>
+
+    <div id="logo">
+        <a href="{% url 'insert_location' %}" ><img src="{% static 'media/logo-dark.png' %}" alt="Logo" style="width: 130px; height: 50px;"></a>
+    </div>
+    <p>weather by region (json,html): </p>
+    <form action="{% url 'weather-info' %}" method="GET">
+        <label for="region">region (json):</label>
+        <input type="text" id="region" name="region" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="{% url 'weather-info-html' %}" method="GET">
+        <label for="region">region (html):</label>
+        <input type="text" id="region" name="region" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p>weather by location (json): </p>
+    <form action="{% url 'weather-info-loc' %}" method="GET">
+        <label for="lat">Latitude:</label>
+        <input type="text" id="lat" name="lat" required>
+        <label for="lon">Longitude:</label>
+        <input type="text" id="lon" name="lon" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p class="fw-4 fs-13 color-dark-2 copyright m-0">©2024 Weather App Zlab's, All Rights Reserved.</p>
+
+    <script>
+        // You can add additional JavaScript code here if needed.
+    </script>
+
+</body>
+</html>
