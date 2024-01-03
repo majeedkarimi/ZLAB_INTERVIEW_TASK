@@ -37,11 +37,15 @@ ________________________________________________________________________________
 
 When the program is executed, it goes to the specified local link (usually the local link is http://127.0.0.1:8000).
 
-The first page of the weather application consists of three parts:
+The first page of the weather application consists of three sections:
 
-The first part receives the desired region and displays the information in JSON format.
+The first section receives the desired region and displays the information in JSON format. Basic Authentication is used for this section. You can access this section using the username and password created from the createsuperuser section. The three main types of authentication that can be implemented are:
+1: Basic Authentication
+2: Token Authentication
+3: JWT (JSON Web Token) Authentication
 
-The second part receives the desired region and displays the information on an HTML page.
+The second section receives the desired region and displays the information in an HTML page.
 
-The third part receives geographical coordinates (latitude and longitude) and displays
+The third section receives geographical longitude and latitude information and displays weather information in JSON format
+
 
